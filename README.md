@@ -10,20 +10,12 @@
 ---
 
 ### 💻 About Us
-<!-- 关于我们：介绍团队的核心定位与愿景 -->
 Dedicated to simulation modeling, and open-source sharing.
-<!-- 致力于仿真建模与开源分享。 -->
 
 ### 🛠️ Core Focus
-<!-- 核心方向：罗列技术攻关的主要板块 -->
-*   **Python tutorials:** Sharing basic Python and coding practice notes.
-*   **Open-source research:** Medium-Frequency Liquidity Provider (MFLP) models.
-*   **Simulation modeling:** Exploring modeling techniques and future commercial possibilities.
-
-### 📌 Featured Repositories
-<!-- 重点开源项目：后续展示和固定核心代码仓库的位置 -->
-*   **[JIANMO-yhao](https://github.com/JIANMO-yhao/JIANMO-yhao)** - Core code and baseline architecture playground.
-<!-- 团队核心代码与基础架构演练场。 -->
+*   **[Python tutorials](https://github.com/JIANMO-yhao/JIANMO-yhao/tree/main/PythonTutorials)** - Sharing basic Python and coding practice notes.
+*   **[Open-source research](https://github.com/JIANMO-yhao/JIANMO-yhao/tree/main/MediumFrequencyLP)** Medium-Frequency Liquidity Provider (MFLP) models.
+*   **[Simulation modeling](https://github.com/JIANMO-yhao/JIANMO-yhao/tree/main/SimulationModeling)** Exploring modeling techniques and future commercial possibilities.
 
 ---
 > *"Build from first principles."*
