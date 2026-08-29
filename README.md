@@ -2,7 +2,7 @@
 
 # JIANMO Studio
 
-[![X (Twitter)](https://img.shields.io/badge/X-%40yhao95267-black?style=flat-square&logo=X)](https://x.com/yhao95267)
+[![X (Twitter)](https://img.shields.io/badge/X-%40yhao95267-blue?style=flat-square&logo=X)](https://x.com/yhao95267)
 [![GitHub](https://img.shields.io/badge/GitHub-JIANMO--yhao-blue?style=flat-square&logo=github)](https://github.com/JIANMO-yhao)
 
 </div>
