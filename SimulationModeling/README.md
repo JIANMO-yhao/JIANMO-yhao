@@ -1,3 +1,9 @@
+<div align="center">
+
+# Stock Price Simulation
+
+</div>
+
 <!-- &emsp; This is a space. -->
 &emsp;&emsp; Considering the dynamics of stock prices in real financial markets, we assume that they exhibit the following three characteristics:
 
@@ -122,3 +128,7 @@ Then,
 $$ \mu_X = \mu_S - \frac{1}{2} \sigma^2 - \lambda (\mathbb{E}[e^J]-1) $$
 
 &emsp;&emsp; Thirdly, 
+
+
+---
+> *"Build from first principles."*

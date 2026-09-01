@@ -1,10 +1,17 @@
+
+<div align="center">
+
 # LaTeX Mathematical Cheatsheet
+
+</div>
 
 ## Basic
 
 `$…$` $X_t$
 
 `$$…$$` $$ X_t=\ln S_t $$
+
+`$\{ … \}$` $\{ X_t \}$
 
 ## Subscript / Superscript
 
@@ -159,3 +166,6 @@ $$
 `$\left[ \frac{a}{b} \right]$` $\left[ \frac{a}{b} \right]$
 
 `$\left\{1,2,\ldots,N\right\}$` $\left\{1,2,\ldots,N\right\}$
+
+---
+> *"Python Tutorials"*
