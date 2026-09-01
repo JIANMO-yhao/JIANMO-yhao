@@ -5,12 +5,12 @@ from dataclasses import dataclass
 @dataclass
 class ModelParams:              # 金融模型类
     S0:float                    # 初始股票价格(如 100.00)
-    miuS:float                  # 股票年化期望收益率(如 0.12)
+    muS:float                   # 股票年化期望收益率(如 0.12)
     sigma:float                 # 正态分布标准差/年化连续波动率(如 0.15)
     probJplus:float             # 双向指数分布正向跳跃概率(如 0.3)
-    miuJ:float                  # 正向跳跃平均幅度/期望值(如 0.05)
+    muJ:float                   # 正向跳跃平均幅度/期望值(如 0.05)
     alpha:float                 # 负向跳跃相对倍数(alpha > 1，如 2.5 表示负跳平均幅度为 0.05 * 2.5 = 0.125)
-    lamda:float                 # 泊松分布强度/年化跳跃频率(如 12)
+    lambda_:float               # 泊松分布强度/年化跳跃频率(如 12)
 @dataclass
 class SimulationParams:         # 仿真模拟类
     T:float                     # 时间长度/年(如 1.00)
@@ -21,12 +21,12 @@ class SimulationParams:         # 仿真模拟类
 # 参数输入设置
 model = ModelParams(            # 金融模型类
     S0=100,
-    miuS=0.12,
+    muS=0.12,
     sigma=0.15,
     probJplus=0.3,
-    miuJ=0.05,
+    muJ=0.05,
     alpha=1.5,
-    lamda=100
+    lambda_=100
 )
 simulation = SimulationParams(  # 仿真模拟类
     T=1,
