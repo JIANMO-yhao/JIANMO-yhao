@@ -127,8 +127,54 @@ Then,
 
 $$ \mu_X = \mu_S - \frac{1}{2} \sigma^2 - \lambda (\mathbb{E}[e^J]-1) $$
 
-&emsp;&emsp; Thirdly, 
+&emsp;&emsp; Thirdly, we assume that;
 
+$$
+J = 
+\begin{cases}
+J_+ , & \text{with probability p} \\
+-J_- , & \text{with probability 1 - p}\\
+\end{cases}
+$$
+
+where we assume $ \alpha > 1$, $ \mathbb{E}[J_-] = \alpha \beta = \alpha \mathbb{E}[J_+] $, and
+
+$$
+\begin{cases}
+J_+ , J_->0 \\
+J_+ \sim Exp( \frac{1}{\beta})\\
+J_- \sim Exp( \frac{1}{ \alpha \beta})\\
+\end{cases}
+$$
+
+Then,
+
+$$
+f_J(j) = 
+\begin{cases}
+\frac{p}{\beta} e^{- \frac{j}{\beta}} & , j \geq 0 \\
+\frac{1-p}{\alpha \beta} e^{- \frac{-j}{\alpha \beta}} & , j<0 \\
+\end{cases}
+$$
+
+So, we obtain:
+
+$$
+\begin{aligned}
+\mathbb{E}[e^J]
+&= \int_{- \infty}^0 e^j \frac{1-p}{\alpha \beta} e^{- \frac{-j}{\alpha \beta}} dj + \int_0^{+ \infty} e^j \frac{p}{\beta} e^{- \frac{j}{\beta}} dj \\
+&= \frac{1-p}{\alpha \beta} \int_{- \infty}^0 e^{\frac{\alpha \beta + 1}{\alpha \beta} j} dj + \frac{p}{\beta} \int_0^{+ \infty} e^{\frac{- (1- \beta)}{\beta} j} \text{, where } 0 < \beta < 1 \\
+&= \frac{1-p}{\alpha \beta + 1} + \frac{p}{1 - \beta} \\
+\end{aligned}
+$$
+
+Therefore, we have:
+
+$$ \mathbb{E}[S_t] = S_0 \exp \left[ \left( \mu_X + \frac{1}{2}\sigma^2 + \lambda( \frac{1-p}{\alpha \beta + 1} + \frac{p}{1 - \beta}-1)\right)t\right] $$
+
+and,
+
+$$ \mu_X = \mu_S - \frac{1}{2} \sigma^2 - \lambda (\frac{1-p}{\alpha \beta + 1} + \frac{p}{1 - \beta}-1) $$
 
 ---
 > *"Build from first principles."*

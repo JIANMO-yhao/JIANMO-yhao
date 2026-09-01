@@ -13,6 +13,8 @@
 
 `$\{ … \}$` $\{ X_t \}$
 
+`$\ldots$` $\ldots$
+
 ## Subscript / Superscript
 
 `$X_t$` $X_t$
@@ -74,6 +76,33 @@
 ## Partial derivative
 
 `$\frac{\partial f}{\partial x}$` $\frac{\partial f}{\partial x}$
+
+## Categorical discussion
+
+`$$`
+
+`F_X(x)=`
+
+`\begin{cases}`
+
+`0, & x<0,\\`
+
+`x^2, & 0\le x<1,\\`
+
+`1, & x\ge1.`
+
+`\end{cases}`
+
+`$$`
+
+$$
+F_X(x)=
+\begin{cases}
+0, & x<0,\\
+x^2, & 0\le x<1,\\
+1, & x\ge1.
+\end{cases}
+$$
 
 ## Multiple equations
 
