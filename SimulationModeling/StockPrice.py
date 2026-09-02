@@ -23,10 +23,10 @@ model = ModelParams(            # Financial Model Class
     S0=100,
     muS=0.12,
     sigma=0.15,
+    lambda_=100.0,
     probJplus=0.3,
-    muJ=0.05,
+    beta=0.05,
     alpha=1.5,
-    lambda_=100
 )
 simulation = SimulationParams(  # Simulation Class
     T=1,
@@ -37,8 +37,17 @@ simulation = SimulationParams(  # Simulation Class
 
 # Define a stock price simulation function
 def stock_price_simulation(model, simulation):
-    dt = simulation.T / simulation.N                # Unit step length represents the time per year
+    dt = 1 / simulation.N                # Unit step length represents the time per year
+    total_steps = int(simulation.T * simulation.N)
+    
+    # 构建muX
+    muX = model.muS - (1/2)*(model.sigma**2) - model.lambda_*(
+        (1-model.probJplus)/(model.alpha*model.beta+1) + model.probJplus/(1-model.beta) - 1
+    )
+
+    # 构建随机波动项
+
     print(model.S0)
-    return dt
+    return dt, muX
 
 print(stock_price_simulation(model, simulation))    # Simulation test
