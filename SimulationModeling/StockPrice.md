@@ -5,7 +5,7 @@
 </div>
 
 <!-- &emsp; This is a space. -->
-&emsp;&emsp; Considering the dynamics of stock prices in real financial markets, we assume that they exhibit the following three characteristics:
+&emsp;&emsp;Considering the dynamics of stock prices in real financial markets, we assume that they exhibit the following three characteristics:
 
 Assumption 1: Annualized returns are relatively stable;
 
@@ -44,7 +44,7 @@ $$
 $$
 where the Brownian motion $W_t$, the Poisson process $N_t$, and the jump sizes $\{J_i\}_{i \geq 1}$ are assumed to be mutually independent.
 
-&emsp;&emsp; Firstly, let $Z_t = \sigma W_t$ and $Y_t = e^{Z_t}$. We have:
+&emsp;&emsp;Firstly, let $Z_t = \sigma W_t$ and $Y_t = e^{Z_t}$. We have:
 
 $$ f_Z(z) = \frac{1}{\sqrt{2 \pi \sigma^2 t}} e^{- \frac{z^2}{2 \sigma^2 t}} $$
 
@@ -60,23 +60,23 @@ $$
 \end{aligned}
 $$
 
-&emsp;&emsp; Secondly, we assume $N_t=n$, we have:
+&emsp;&emsp;Secondly, we assume $N_t=n$, we have:
 
-$$ \sum_{i=1}^{N_t}J_i = J_1 + … + J_n $$
+$$ \sum_{i=1}^{N_t}J_i = J_1 + \ldots + J_n $$
 
 So,
 
-$$ e^{\sum_{i=1}^{N_t}J_i} = e^{J_1 + … + J_n} = e^{J_1}e^{J_2}…e^{J_n} $$
+$$ e^{\sum_{i=1}^{N_t}J_i} = e^{J_1 + \ldots + J_n} = e^{J_1}e^{J_2} \ldots e^{J_n} $$
 
-Furthermore, $J_1, J_2, … , J_n$ are independent and identically distributed (i.i.d.), so:
+Furthermore, $J_1, J_2, \ldots, J_n$ are independent and identically distributed (i.i.d.), so:
 
-$$ \mathbb{E}[e^{J_1} … e^{J_n}] = (\mathbb{E}[e^J])^n $$
+$$ \mathbb{E}[e^{J_1} \ldots e^{J_n}] = (\mathbb{E}[e^J])^n $$
 
 Then,
 
 $$ \mathbb{E}(e^{\sum_{i=1}^{N_t}J_i} \mid N_t = n) = (\mathbb{E}[e^J])^n $$
 
-Since $N_t \sim \operatorname{Poisson}(\lambda t)$, its probability mass function is given by
+Since $N_t \sim Poisson(\lambda t)$, its probability mass function is given by
 
 $$\mathbb{P}(N_t = n) = e^{- \lambda t} \frac{(\lambda t)^n}{n!}$$
 
@@ -111,7 +111,7 @@ $$
 \end{aligned}
 $$
 
-&emsp;&emsp; At the same time, we require the model to have an annualized expected return of $\mu_S$ , such that:
+&emsp;&emsp;At the same time, we require the model to have an annualized expected return of $\mu_S$ , such that:
 
 $$ \frac{ d \mathbb{E}[S_t]}{ \mathbb{E}[S_t]} = \mu_S dt  $$
 
@@ -127,7 +127,7 @@ Then,
 
 $$ \mu_X = \mu_S - \frac{1}{2} \sigma^2 - \lambda (\mathbb{E}[e^J]-1) $$
 
-&emsp;&emsp; Thirdly, we assume that;
+&emsp;&emsp;Thirdly, we assume that;
 
 $$
 J = 
@@ -170,11 +170,40 @@ $$
 
 Therefore, we have:
 
-$$ \mathbb{E}[S_t] = S_0 \exp \left[ \left( \mu_X + \frac{1}{2}\sigma^2 + \lambda( \frac{1-p}{\alpha \beta + 1} + \frac{p}{1 - \beta}-1)\right)t\right] $$
+$$ \mathbb{E}[S_t] = S_0 \exp \left[ \left( \mu_X + \frac{1}{2}\sigma^2 + \lambda \left( \frac{1-p}{\alpha \beta + 1} + \frac{p}{1 - \beta}-1 \right)\right)t\right] $$
 
 and,
 
-$$ \mu_X = \mu_S - \frac{1}{2} \sigma^2 - \lambda (\frac{1-p}{\alpha \beta + 1} + \frac{p}{1 - \beta}-1) $$
+$$ \mu_X = \mu_S - \frac{1}{2} \sigma^2 - \lambda \left(\frac{1-p}{\alpha \beta + 1} + \frac{p}{1 - \beta}-1 \right) $$
+
+&emsp;&emsp;Finally, we obtain:
+
+$$
+\begin{aligned}
+S_t
+&= S_0 \exp \left(\mu_X t + \sigma W_t + \sum_{i=1}^{N_t}J_i \right) \\
+&= S_0 \exp \left \{\left[ \mu_S - \frac{1}{2} \sigma^2 - \lambda \left(\frac{1-p}{\alpha \beta + 1} + \frac{p}{1 - \beta}-1 \right) \right] t + \sigma W_t + \sum_{i=1}^{N_t}J_i \right \} \\
+\end{aligned}
+$$
+
+Say in other words,
+
+$$ S_{t+ \Delta t} = S_t \exp \left \{ \left[ \mu_S - \frac{1}{2} \sigma^2 - \lambda \left(\frac{1-p}{\alpha \beta + 1} + \frac{p}{1 - \beta}-1 \right) \right] \Delta t + \sigma \sqrt{ \Delta t} Z_t + \sum_{i=1}^{K_t}J_{t, i} \right \} $$
+
+in which,
+
+$$
+
+\begin{cases}
+Z_t \sim N(0, 1) \\
+K_t \sim Poisson(\lambda \Delta t) \\
+J_{t,i}\overset{\mathrm{i.i.d.}}{\sim}J & i = 1, \ldots, K_t \\
+\end{cases}
+$$
+
+where $K_t$ represents the number of jumps that occur within the interval $(t,t+\Delta t]$, and $J_{t,i}$ represents the size of the $i$-th jump during this interval.
+
+So now, we can begin writing code and designing simulation programs.
 
 ---
 > *"Build from first principles."*
