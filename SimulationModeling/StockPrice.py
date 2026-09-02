@@ -1,25 +1,25 @@
 import numpy as np
 from dataclasses import dataclass
 
-# 封装"金融模型类"+"仿真模拟类"
+# Define "Financial Model Class" + "Simulation Class"
 @dataclass
-class ModelParams:              # 金融模型类
-    S0:float                    # 初始股票价格(如 100.00)
-    muS:float                   # 股票年化期望收益率(如 0.12)
-    sigma:float                 # 正态分布标准差/年化连续波动率(如 0.15)
-    probJplus:float             # 双向指数分布正向跳跃概率(如 0.3)
-    muJ:float                   # 正向跳跃平均幅度/期望值(如 0.05)
-    alpha:float                 # 负向跳跃相对倍数(alpha > 1，如 2.5 表示负跳平均幅度为 0.05 * 2.5 = 0.125)
-    lambda_:float               # 泊松分布强度/年化跳跃频率(如 12)
+class ModelParams:              # Financial Model Class
+    S0:float                    # Initial stock price
+    muS:float                   # Average annualized return
+    sigma:float                 # Annualized volatility
+    lambda_:float               # Annualized number of jumps
+    probJplus:float             # Annualized positive jump probability
+    beta:float                  # Average annualized positive jump intensity
+    alpha:float                 # Average annualized negative jump intensity relative multiple
 @dataclass
-class SimulationParams:         # 仿真模拟类
-    T:float                     # 时间长度/年(如 1.00)
-    N:int                       # 总步数/T
-    num_paths:int               # 仿真次数
-    seed:int | None = None      # 随机种子
+class SimulationParams:         # Simulation Class
+    T:float                     # Duration in years (e.g. 1.00)
+    N:int                       # Total steps per year (e.g. 365)
+    num_paths:int               # Simulation times (e.g. 1)
+    seed:int | None = None      # Random Seed (e.g. 88)
 
-# 参数输入设置
-model = ModelParams(            # 金融模型类
+# Define input parameters
+model = ModelParams(            # Financial Model Class
     S0=100,
     muS=0.12,
     sigma=0.15,
@@ -28,20 +28,17 @@ model = ModelParams(            # 金融模型类
     alpha=1.5,
     lambda_=100
 )
-simulation = SimulationParams(  # 仿真模拟类
+simulation = SimulationParams(  # Simulation Class
     T=1,
     N=365,
     num_paths=1,
     seed=88
 )
 
-# 股票价格仿真函数
-# 年化期望：d(E[St]) / E[St] = μS dt --> E[St] = S0 * exp(μS * t)
-# 股价生成：dXt = μX dt + σ dWt + Jt dNt | Xt = lnSt
-# 其中：Wt服从正态分布，Jt服从双向指数分布，Nt服从泊松分布
+# Define a stock price simulation function
 def stock_price_simulation(model, simulation):
-    dt = simulation.T / simulation.N                # 单位步长代表时间/年
+    dt = simulation.T / simulation.N                # Unit step length represents the time per year
     print(model.S0)
     return dt
 
-print(stock_price_simulation(model, simulation))    # 仿真测试
+print(stock_price_simulation(model, simulation))    # Simulation test
